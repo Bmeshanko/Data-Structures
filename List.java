@@ -52,5 +52,4 @@ public class List {
 		
 		return list;
 	}
-	
 }
