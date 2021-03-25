@@ -1,4 +1,4 @@
-public class List {
+ public class List {
 	
 	private Node head;
 	private int length;
