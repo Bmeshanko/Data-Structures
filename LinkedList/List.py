@@ -1,3 +1,4 @@
+import random;
 class Node:
 
     def __init__(self):
@@ -11,7 +12,7 @@ class LinkedList:
         self.length = 0;
 
 
-    def generateList(num):
+    def generateList(self, num):
         head = Node();
         
         self.head = head;
@@ -31,20 +32,20 @@ class LinkedList:
             newNode.next = None;
     
     def toString(self):
-        traverse = Node();
+        traverse = self.head;
         s = "";
         for x in range(self.length):
-            if (i < self.length - 1):
-                s += traverse.data + " -> "
+            if (x < self.length - 1):
+                s += str(traverse.data) + " -> "
             else:
-                s += traverse.data
+                s += str(traverse.data)
             traverse = traverse.next
         return s;
              
-    if __name__ == "__main__":
-        list = LinkedList();
-        list.generateList(10);
-        print(list.toString());
+if __name__ == "__main__":
+    list = LinkedList()
+    list.generateList(10)
+    print list.toString()
         
 
 
