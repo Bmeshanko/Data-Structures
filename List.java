@@ -49,7 +49,6 @@ public class List {
 			
 			traverse.next = newNode;
 		}
-		
 		return list;
 	}
 }
