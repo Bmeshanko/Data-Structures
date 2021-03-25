@@ -1,3 +1,5 @@
+import List.Node;
+
 public class List {
 	
 	private Node head;
@@ -9,7 +11,6 @@ public class List {
 	public class Node {
 		
 		private Node next;
-		private Node prev;
 		private int value;
 		
 		
@@ -21,19 +22,13 @@ public class List {
 		public void setNext(Node next) {
 			this.next = next;
 		}
-		
-		public void setPrev(Node next) {
-			this.prev = prev;
-		}
 	}
 	
-	public List generateList(int length) {
-		List list = new List();
-		
+	public List(int length) {
 		Node head = new Node();
 		
-		list.head = head;
-		list.length = length;
+		this.head = head;
+		this.length = length;
 		
 		for (int i = 1; i < length; i++) {
 			Node newNode = new Node();
@@ -48,16 +43,62 @@ public class List {
 			}
 			
 			traverse.next = newNode;
+			newNode.next = null;
 		}
-		return list;
 	}
 	
 	public String toString() {
 		Node traverse = head;
+		String s = "";
 		for (int i = 0; i < length; i++) {
-			System.out.println(traverse.value + " ");
+			if (i < length - 1)
+				s += traverse.value + " -> ";
+			else
+				s += traverse.value;
 			traverse = traverse.next;
 		}
+		return s;
 	}
 	
+	
+	/* 
+	 * Insertion Sort: create a new List, then insert the nodes in order.
+	 */
+	public List sortList() {
+		Node currList = this.head;
+		
+		List sortList = new List(this.length);
+		
+		while (currList != null) {
+			Node newNode = currList;
+			
+			currList = currList.next;
+			
+			if (sortList.head == null) {
+				sortList.head = newNode;
+			} else {
+				Node traverse = sortList.head;
+				
+				if (newNode.value >= sortList.head.value) {
+					newNode.next = sortList.head.next;
+					sortList.head.next = newNode;
+				} else {
+					while (traverse.next != null && newNode.value < traverse.next.value) {
+						traverse = traverse.next;
+					}
+					newNode.next = traverse.next;
+					traverse.next = newNode;
+				}
+			}
+		}
+		return sortList;
+	}
+	
+	public static void main(String[] args) {
+		List list = new List(10);
+		
+		System.out.println(list.toString());
+		list = list.sortList();
+		System.out.println(list.toString());
+	}
 }
