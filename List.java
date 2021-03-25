@@ -52,5 +52,12 @@ public class List {
 		return list;
 	}
 	
+	public String toString() {
+		Node traverse = head;
+		for (int i = 0; i < length; i++) {
+			System.out.println(traverse.value + " ");
+			traverse = traverse.next;
+		}
+	}
 	
 }
