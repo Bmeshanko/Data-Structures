@@ -1,5 +1,3 @@
-import List.Node;
-
 public class List {
 	
 	private Node head;
