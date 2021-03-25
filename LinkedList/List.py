@@ -41,11 +41,42 @@ class LinkedList:
                 s += str(traverse.data)
             traverse = traverse.next
         return s;
+
+    def sortList(self):
+        sortList = LinkedList();
+        currList = self.head
+        sortList.length = self.length
+
+        while(currList != None and currList.next != None):
+            newNode = Node()
+            newNode.data = currList.data
+            
+            currList = currList.next
+
+            if (sortList.head == None):
+                sortList.head = newNode
+            else:
+                traverse = sortList.head
+                if (newNode.data >= sortList.head.data):
+                    temp = sortList.head.data
+                    sortList.head.data = newNode.data
+                    newNode.data = temp
+
+                    newNode.next = sortList.head.next
+                    sortList.head.next = newNode
+                else:
+                    while (traverse.next != None and newNode.data < traverse.next.data):
+                        traverse = traverse.next
+                    newNode.next = traverse.next
+                    traverse.next = newNode
+        return sortList;
              
 if __name__ == "__main__":
     list = LinkedList()
     list.generateList(10)
     print list.toString()
-        
+    list = list.sortList()
+    print list.toString()
+    
 
 
