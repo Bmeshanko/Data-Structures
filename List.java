@@ -1,5 +1,3 @@
-import List.Node;
-
 public class List {
 	
 	private Node head;
@@ -66,7 +64,7 @@ public class List {
 	 */
 	public List sortList() {
 		Node currList = this.head;
-		List sortList = new List(this.length);
+		List sortList = new List(0);
 		
 		while (currList != null) {
 			Node newNode = currList;
