@@ -1,3 +1,5 @@
+import List.Node;
+
 public class List {
 	
 	private Node head;
@@ -22,13 +24,13 @@ public class List {
 		}
 	}
 	
-	public List(int length) {
+	public void generateList(int length) {
 		Node head = new Node();
 		
 		this.head = head;
 		this.length = length;
 		
-		for (int i = 1; i < length; i++) {
+		for (int i = 0; i < length; i++) {
 			Node newNode = new Node();
 			Node traverse = head;
 			
@@ -64,19 +66,24 @@ public class List {
 	 */
 	public List sortList() {
 		Node currList = this.head;
-		List sortList = new List(0);
+		List sortList = new List();
+		sortList.length = this.length;
 		
-		while (currList != null) {
-			Node newNode = currList;
+		while (currList != null && currList.next != null) {
+			Node newNode = new Node();
+			newNode.value = currList.value;
 			
 			currList = currList.next;
-			
+
 			if (sortList.head == null) {
 				sortList.head = newNode;
 			} else {
 				Node traverse = sortList.head;
-				
 				if (newNode.value >= sortList.head.value) {
+					int temp = sortList.head.value;
+					sortList.head.value = newNode.value;
+					newNode.value = temp;
+					
 					newNode.next = sortList.head.next;
 					sortList.head.next = newNode;
 				} else {
@@ -92,10 +99,10 @@ public class List {
 	}
 	
 	public static void main(String[] args) {
-		List list = new List(10);
+		List list = new List();
+		list.generateList(10);
 		
-		System.out.println(list.toString());
-		list = list.sortList();
-		System.out.println(list.toString());
+		System.out.println(list);
+		System.out.println(list.sortList());
 	}
 }
