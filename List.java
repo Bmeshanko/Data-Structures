@@ -66,7 +66,6 @@ public class List {
 	 */
 	public List sortList() {
 		Node currList = this.head;
-		
 		List sortList = new List(this.length);
 		
 		while (currList != null) {
