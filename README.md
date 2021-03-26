@@ -1,4 +1,4 @@
-# Data-Structures
+# Data Structures Library Project
 
 With this project, I intend to form a Library of Data Structures that can be used for other important topics.
 
