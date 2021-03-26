@@ -1,7 +1,7 @@
 public class BinaryTree {
 	
-	private Node root; // Top-most node.
-
+	private Node[] nodes; // All the nodes in the tree.
+	private String output; // The info is stored in a String, and printed.
 	public class Node {
 		
 		private int value;
@@ -16,82 +16,36 @@ public class BinaryTree {
 		}
 	}
 	
-	public void generateTree(int num) {
+	public void initializeTree(int num) {
 		
 		// Initialize a Node[] to store
 		// The Nodes.
 		Node[] nodes = new Node[num];
-		
 		for (int i = 0; i < num; i++) {
 			nodes[i] = new Node();
+			System.out.println(nodes[i].value);
 		}
+
+		// Sort the Tree, needed to create a balanced tree.
+		// Here, we are using Bubble Sort to sort the nodes.
 		
-		// Just put in the Nodes in order, the tree isn't balanced.
-		// This will be done iteratively.
-
-		this.root = nodes[0];
-
-		for (int i = 1; i < num; i++) {
-			// Right Side
-			if (nodes[i].value > this.root.value) {
-
-				if (this.root.right == null) {
-					this.root.right = nodes[i];
-				} else {
-					Node traverse = this.root;
-
-					while (traverse.right != null && nodes[i].value > traverse.value) {
-						traverse = traverse.right;
-					}
-
-					if (nodes[i].value > traverse.value) {
-						traverse.right = nodes[i];
-					} else {
-						traverse.left = nodes[i];
-					}
-				}
-			// Left Side
-			} else {
-
-				if (this.root.left == null) {
-					this.root.left = nodes[i];
-				} else {
-					Node traverse = this.root;
-
-					while (traverse.left != null && nodes[i].value < traverse.value) {
-						traverse = traverse.left;
-					}
-
-					if (nodes[i].value > traverse.value) {
-						traverse.right = nodes[i];
-					} else {
-						traverse.left = nodes[i];
-					}
+		for (int i = 0; i < nodes.length - 1; i++) {
+			for (int j = 0; j < nodes.length - i - 1; j++) {
+				if (nodes[j].value > nodes[j+1].value) {
+					Node temp = nodes[j];
+					nodes[j] = nodes[j+1];
+					nodes[j+1] = temp;
 				}
 			}
 		}
-	}
-	
-	public static String preOrder(Node root, String s) {
 		
-		if (root == null) return s;
-
-		System.out.println(root.value);
-
-		preOrder(root.left, s);
-
-		preOrder(root.right, s);
-
-		return s;
+		this.nodes = nodes;
 	}
 
 	public static void main(String[] args) {
-		String s = "";
 		BinaryTree tree = new BinaryTree();
-		tree.generateTree(10);
-
-		s = preOrder(tree.root, s);
-		System.out.println(s);
+		tree.initializeTree(10);
+		
 	}
 
 }
