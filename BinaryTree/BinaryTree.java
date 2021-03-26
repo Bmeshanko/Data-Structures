@@ -31,15 +31,19 @@ public class BinaryTree {
 		
 		for (int i = 0; i < nodes.length - 1; i++) {
 			for (int j = 0; j < nodes.length - i - 1; j++) {
-				if (nodes[j].value > nodes[j+1].value) {
+				if (nodes[j].value > nodes[j + 1].value) {
 					Node temp = nodes[j];
-					nodes[j] = nodes[j+1];
-					nodes[j+1] = temp;
+					nodes[j] = nodes[j + 1];
+					nodes[j + 1] = temp;
 				}
 			}
 		}
 		
 		this.nodes = nodes;
+	}
+
+	public void constructTree(int lower, int upper, Node root) {
+		
 	}
 
 	public static void main(String[] args) {
