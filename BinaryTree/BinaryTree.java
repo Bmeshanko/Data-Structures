@@ -43,13 +43,16 @@ public class BinaryTree {
 		this.nodes = nodes;
 	}
 
-	public void constructTree(int lower, int upper, Node root) {
+	public Node constructTree(int lower, int upper, Node root) {
 		int middle = (lower + upper) / 2;
 
-		if (middle == lower) return;
+		System.out.println(lower + " " + middle + " " + upper);
+		
+		if (middle == lower) return this.root;
 
 		root = this.nodes[middle - 1];
-
+		
+		
 		root.right = new Node();
 		root.right.parent = root;
 		
@@ -58,10 +61,11 @@ public class BinaryTree {
 
 		constructTree(lower, middle, root.left);
 		
-
-		if (upper - lower == 2) return;
+		if (upper - lower == 2) return null;
 
 		constructTree(1 + middle, upper, root.right);
+		
+		return this.root;
 	}
 
 	public void preOrder(Node root) {
@@ -77,9 +81,8 @@ public class BinaryTree {
 	public static void main(String[] args) {
 		BinaryTree tree = new BinaryTree();
 		tree.initializeTree(7);
-		tree.constructTree(1, 8, null);
-		tree.preOrder(tree.root);
-
+		tree.root = tree.constructTree(1, 8, tree.root);
+		
 		System.out.println(tree.output);
 	}
 
