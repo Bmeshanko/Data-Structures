@@ -1,4 +1,3 @@
-package LinkedList; 
 public class List {
 	
 	private Node head;

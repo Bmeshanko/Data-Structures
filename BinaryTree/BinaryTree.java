@@ -1,4 +1,3 @@
-import LinkedList.List;
 public class BinaryTree {
 	
 	private Node root; // Top-most node.
@@ -17,13 +16,63 @@ public class BinaryTree {
 	
 	public void generateTree(int num) {
 		
-		List list = new List(num);
-		list.generateList();
+		// Initialize a Node[] to store
+		// The Nodes.
+		Node[] nodes = new Node[num];
 		
+		for (int i = 0; i < num; i++) {
+			nodes[i] = new Node();
+		}
+		
+		// Just put in the Nodes in order, the tree isn't balanced.
+		// This will be done iteratively.
 
+		this.root = nodes[0];
+
+		for (int i = 1; i < num; i++) {
+			
+			// Right Side
+			if (nodes[i].value > this.root.value) {
+				
+				if (root.right == null) {
+					root.right = nodes[i];
+				} else {
+					Node traverse = root;
+
+					while (traverse.right != null && nodes[i].value > traverse.value) {
+						traverse = traverse -> right;
+					}
+
+					if (nodes[i].value > traverse.value) {
+						traverse.right = nodes[i];
+					} else {
+						traverse.left = nodes[i];
+					}
+				}
+			// Left Side
+			} else {
+
+				if (root.left == null) {
+					root.left = nodes[i];
+				} else {
+					Node traverse = root;
+
+					while (traverse.left != null && nodes[i].value < traverse.value) {
+						traverse = traverse.left;
+					}
+
+					if (nodes[i].value > traverse.value) {
+						traverse.right = nodes[i];
+					} else {
+						traverse.left = nodes[i];
+					}
+				}
+			}
+
+		}
 	}
 
 	
-	
+
 }
 
