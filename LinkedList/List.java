@@ -5,7 +5,7 @@
 	
 	/* 
 	 * Node Class: Defines a Single Node in the Linked List.
-	 * */
+	 */
 	public class Node {
 		
 		private Node next;
@@ -21,7 +21,12 @@
 			this.next = next;
 		}
 	}
-	
+        
+	/* 
+	 * When a new list is initialized, it has all null parameters. This
+	 * method gives the List a head, a length (defined by user input) and
+	 * all of the nodes that have random values 1-10.
+	 */
 	public void generateList(int length) {
 		Node head = new Node();
 		
@@ -32,6 +37,9 @@
 			Node newNode = new Node();
 			Node traverse = head;
 			
+
+			// head needs to be fully defined before we can traverse
+			// through the list iteratively.
 			if (head.next == null) {
 				head.next = newNode;
 			}
@@ -50,7 +58,7 @@
 		String s = "";
 		for (int i = 0; i < length; i++) {
 			if (i < length - 1)
-				s += traverse.value + " -> ";
+				s += traverse.value + " -> "; // Example: 5 -> 3 -> 4, shows link.
 			else
 				s += traverse.value;
 			traverse = traverse.next;
