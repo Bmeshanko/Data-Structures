@@ -10,7 +10,9 @@ public class BinaryTree {
 
 		public Node() {
 			// Initializes a node with a value 1 - 30.
-			this.value = (int) (1 + 30 * Math.random()); 
+			this.value = (int) (1 + 30 * Math.random());
+			this.left = null;
+			this.right = null;
 		}
 	}
 	
@@ -71,8 +73,28 @@ public class BinaryTree {
 
 		}
 	}
-
 	
+	public static String preOrder(Node root, String s) {
+		
+		if (root == null) return s;
+
+		s += root.value + " ";
+
+		preOrder(root.left, s);
+
+		preOrder(root.right, s);
+
+		return s;
+	}
+
+	public static void main(String[] args) {
+		String s = "";
+		BinaryTree tree = new BinaryTree();
+		tree.generateTree(10);
+
+		s = preOrder(tree.root, s);
+		System.out.println(s);
+	}
 
 }
 
