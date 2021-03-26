@@ -25,7 +25,6 @@ public class BinaryTree {
 		Node[] nodes = new Node[num];
 		for (int i = 0; i < num; i++) {
 			nodes[i] = new Node();
-			System.out.println(nodes[i].value);
 		}
 
 		// Sort the Tree, needed to create a balanced tree.
@@ -65,11 +64,23 @@ public class BinaryTree {
 		constructTree(1 + middle, upper, root.right);
 	}
 
+	public void preOrder(Node root) {
+		if (root == null) return;
+
+		this.output += root.value + " ";
+
+		preOrder(root.left);
+
+		preOrder(root.right);
+	}
+
 	public static void main(String[] args) {
 		BinaryTree tree = new BinaryTree();
 		tree.initializeTree(7);
 		tree.constructTree(1, 8, null);
-		
+		tree.preOrder(tree.root);
+
+		System.out.println(tree.output);
 	}
 
 }
