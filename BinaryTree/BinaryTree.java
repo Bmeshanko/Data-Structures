@@ -32,14 +32,13 @@ public class BinaryTree {
 		this.root = nodes[0];
 
 		for (int i = 1; i < num; i++) {
-			
 			// Right Side
 			if (nodes[i].value > this.root.value) {
-				
-				if (root.right == null) {
-					root.right = nodes[i];
+
+				if (this.root.right == null) {
+					this.root.right = nodes[i];
 				} else {
-					Node traverse = root;
+					Node traverse = this.root;
 
 					while (traverse.right != null && nodes[i].value > traverse.value) {
 						traverse = traverse.right;
@@ -54,10 +53,10 @@ public class BinaryTree {
 			// Left Side
 			} else {
 
-				if (root.left == null) {
-					root.left = nodes[i];
+				if (this.root.left == null) {
+					this.root.left = nodes[i];
 				} else {
-					Node traverse = root;
+					Node traverse = this.root;
 
 					while (traverse.left != null && nodes[i].value < traverse.value) {
 						traverse = traverse.left;
@@ -70,7 +69,6 @@ public class BinaryTree {
 					}
 				}
 			}
-
 		}
 	}
 	
@@ -78,7 +76,7 @@ public class BinaryTree {
 		
 		if (root == null) return s;
 
-		s += root.value + " ";
+		System.out.println(root.value);
 
 		preOrder(root.left, s);
 
