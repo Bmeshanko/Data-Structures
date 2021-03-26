@@ -1,12 +1,14 @@
 public class BinaryTree {
 	
 	private Node[] nodes; // All the nodes in the tree.
+	private Node root;
 	private String output; // The info is stored in a String, and printed.
 	public class Node {
 		
 		private int value;
 		private Node left;
 		private Node right;
+		private Node parent;
 
 		public Node() {
 			// Initializes a node with a value 1 - 30.
@@ -43,12 +45,30 @@ public class BinaryTree {
 	}
 
 	public void constructTree(int lower, int upper, Node root) {
+		int middle = (lower + upper) / 2;
+
+		if (middle == lower) return;
+
+		root = this.nodes[middle - 1];
+
+		root.right = new Node();
+		root.right.parent = root;
 		
+		root.left = new Node();
+		root.left.parent = root;
+
+		constructTree(lower, middle, root.left);
+		
+
+		if (upper - lower == 2) return;
+
+		constructTree(1 + middle, upper, root.right);
 	}
 
 	public static void main(String[] args) {
 		BinaryTree tree = new BinaryTree();
-		tree.initializeTree(10);
+		tree.initializeTree(7);
+		tree.constructTree(1, 8, null);
 		
 	}
 
