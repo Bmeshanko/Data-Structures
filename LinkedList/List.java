@@ -1,4 +1,5 @@
- public class List {
+package LinkedList; 
+public class List {
 	
 	private Node head;
 	private int length;
@@ -12,9 +13,9 @@
 		private int value;
 		
 		
-		// Chooses a random value 1 - 10 to be the Node's value.
+		// Chooses a random value 1 - 30 to be the Node's value.
 		public Node() {	
-			value = (int) (1 + 10 * Math.random());
+			value = (int) (1 + 30 * Math.random());
 		}
 		
 		public void setNext(Node next) {
@@ -25,7 +26,7 @@
 	/* 
 	 * When a new list is initialized, it has all null parameters. This
 	 * method gives the List a head, a length (defined by user input) and
-	 * all of the nodes that have random values 1-10.
+	 * all of the nodes that have random values 1-30.
 	 */
 	public void generateList(int length) {
 		Node head = new Node();
