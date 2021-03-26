@@ -1,4 +1,6 @@
 import random;
+
+# Initializes the node with a random integer 1 - 10.
 class Node:
 
     def __init__(self):
@@ -10,8 +12,8 @@ class LinkedList:
     def __init__(self):
         self.head = None
         self.length = 0;
-
-
+    
+    # Gives values to an otherwise blank list (length 0 is default).
     def generateList(self, num):
         head = Node();
         
@@ -36,13 +38,13 @@ class LinkedList:
         s = "";
         for x in range(self.length):
             if (x < self.length - 1):
-                s += str(traverse.data) + " -> "
+                s += str(traverse.data) + " -> " # Shows the "Link" between the data. 
             else:
                 s += str(traverse.data)
             traverse = traverse.next
         return s;
 
-    def sortList(self):
+    def sortList(self): # Insertion Sort. Create a new list, then populate it in order.
         sortList = LinkedList();
         currList = self.head
         sortList.length = self.length
