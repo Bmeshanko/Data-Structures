@@ -40,7 +40,7 @@ public class BinaryTree {
 					Node traverse = root;
 
 					while (traverse.right != null && nodes[i].value > traverse.value) {
-						traverse = traverse -> right;
+						traverse = traverse.right;
 					}
 
 					if (nodes[i].value > traverse.value) {
