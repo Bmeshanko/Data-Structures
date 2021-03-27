@@ -106,7 +106,7 @@ public class List {
 	
 	public static void main(String[] args) {
 		List list = new List();
-		list.generateList(10);
+		list.generateList(20);
 		
 		System.out.println(list);
 		System.out.println(list.sortList());
