@@ -21,6 +21,36 @@ public class Graph {
 		this.connections[node2][node1] = true;
 	}
 
-	
-	
+	public void randomizeConnections() {
+		
+		for (int i = 0; i < this.nodes; i++) {
+			for (int j = i; j < this.nodes; j++) {
+				
+				double random = Math.random();
+				if (random < 0.5 && i != j) {
+					this.connections[i][j] = true;
+					this.connections[j][i] = true;
+				} else {
+					this.connections[i][j] = false;
+					this.connections[j][i] = false;
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		Graph graph = new Graph(5);
+		graph.randomizeConnections();
+
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (graph.connections[i][j]) {
+					System.out.print(1 + " ");
+				} else {
+					System.out.print(0 + " ");
+				}
+			}
+			System.out.println();
+		}
+	}
 }
