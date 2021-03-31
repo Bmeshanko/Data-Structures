@@ -44,15 +44,14 @@ public class BinaryTree {
 	}
 
 	public Node constructTree(int lower, int upper, Node root) {
+		// Goes to the middle of the array.
 		int middle = (lower + upper) / 2;
-
-		System.out.println(lower + " " + middle + " " + upper);
 		
 		if (middle == lower) return this.root;
 
 		root = this.nodes[middle - 1];
 		
-		
+		// Initialize the nodes.
 		root.right = new Node();
 		root.right.parent = root;
 		
@@ -85,6 +84,5 @@ public class BinaryTree {
 		
 		System.out.println(tree.output);
 	}
-
 }
 
