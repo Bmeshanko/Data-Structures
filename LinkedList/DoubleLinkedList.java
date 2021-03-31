@@ -4,7 +4,7 @@ public class DoubleLinkedList {
 	private DoubleNode tail;
 	private int length;
 
-	public class DoubleNode() {
+	public class DoubleNode {
 		private int value;
 		private DoubleNode next;
 		private DoubleNode prev;
