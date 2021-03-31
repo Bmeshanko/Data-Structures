@@ -112,7 +112,7 @@ public class List {
 		// In a Stack, Nodes are added to the top.
 		this.length++;
 
-		node.next = this.head;
+		node.setNext(this.head);
 		this.head = node;
 	}
 
