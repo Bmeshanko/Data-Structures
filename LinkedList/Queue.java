@@ -7,6 +7,17 @@ public class Queue extends List {
 		super.generateList(length);
 	}
 
+	public void add(Node node) {
+		super.queueNode(node);
+	}
 
+	public Node remove() {
+		this.length--;
+
+		Node node = this.head;
+		this.head = this.head.getNext();
+
+		return node;
+	}
 }
 
