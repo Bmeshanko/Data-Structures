@@ -112,6 +112,18 @@ public class List {
 		this.head = node;
 	}
 
+	public void queueNode(Node node) {
+		// In a Queue, Nodes are added to the end.
+		this.length++;
+		
+		Node traverse = this.head;
+		while (traverse.next != null) {
+			traverse = traverse.next;
+		}
+
+		traverse.next = node;
+	}
+
 	public static void main(String[] args) {
 		List list = new List();
 		list.generateList(20);
