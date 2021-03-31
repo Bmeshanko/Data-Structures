@@ -35,12 +35,12 @@ public class List {
 		
 		for (int i = 0; i < length; i++) {
 			Node newNode = new Node();
-			Node traverse = head;
+			Node traverse = this.head;
 			
 
 			// head needs to be fully defined before we can traverse
 			// through the list iteratively.
-			if (head.next == null) {
+			if (this.head.next == null) {
 				head.next = newNode;
 			}
 			
@@ -54,13 +54,14 @@ public class List {
 	}
 	
 	public String toString() {
-		Node traverse = head;
+		Node traverse = this.head;
 		String s = "";
-		for (int i = 0; i < length; i++) {
-			if (i < length - 1)
+		for (int i = 0; i < this.length; i++) {
+			if (i < length - 1) {
 				s += traverse.value + " -> "; // Example: 5 -> 3 -> 4, shows link.
-			else
+			} else {
 				s += traverse.value;
+			}
 			traverse = traverse.next;
 		}
 		return s;
