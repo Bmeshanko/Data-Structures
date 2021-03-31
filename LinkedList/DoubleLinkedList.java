@@ -49,4 +49,32 @@ public class DoubleLinkedList {
 			}
 		}
 	}
+
+	public String forwardString() {
+		Node traverse = this.head;
+		String s = "";
+		for (int i = 0; i < this.length; i++) {
+			if (i < length - 1) {
+				s += traverse.value + " -> ";
+			} else {
+				s += traverse.value;
+			}
+			traverse = traverse.next;
+		}
+		return s;
+	}
+
+	public String backwardString() {
+		Node traverse = this.tail;
+		String s = "";
+		for (int i = 0; i < this.length; i++) {
+			if (i < length - 1) {
+				s += traverse.value + " -> ";
+			} else {
+				s += traverse.value;
+			}
+			traverse = traverse.prev;
+		}
+		return s;
+	}
 }
