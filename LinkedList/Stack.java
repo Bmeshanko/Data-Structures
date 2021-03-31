@@ -9,10 +9,7 @@ public class Stack extends List {
 	}
 
 	public void add(Node node) {
-		this.length++;
-
-		node.next = this.head;
-		this.head = node;
+		super.stack(node);
 	}
 
 	public Node remove() {
