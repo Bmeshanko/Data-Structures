@@ -14,15 +14,11 @@ public class List {
 		
 		// Chooses a random value 1 - 30 to be the Node's value.
 		public Node() {	
-			value = (int) (1 + 30 * Math.random());
+			this.value = (int) (1 + 30 * Math.random());
 		}
 		
 		public void setNext(Node next) {
 			this.next = next;
-		}
-
-		public Node getNext() {
-			return this.next;
 		}
 	}
         
@@ -112,7 +108,7 @@ public class List {
 		// In a Stack, Nodes are added to the top.
 		this.length++;
 
-		node.setNext(this.head);
+		node.next = this.head;
 		this.head = node;
 	}
 
