@@ -103,7 +103,15 @@ public class List {
 		}
 		return sortList;
 	}
-	
+
+	public void stackNode(Node node) {
+		// In a Stack, Nodes are added to the top.
+		this.length++;
+
+		node.next = this.head;
+		this.head = node;
+	}
+
 	public static void main(String[] args) {
 		List list = new List();
 		list.generateList(20);
