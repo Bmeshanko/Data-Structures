@@ -113,7 +113,13 @@ public class List {
 		this.head = node;
 	}
 
-	public Node get(int position) {
+	public Node get(int position) throws IndexException {
+
+		if (position > this.size) {
+			throw new IndexException
+				("Index Exception. Tried to access element " + position + " for a List of size " + this.size);
+		}
+
 		Node traverse = this.head;
 
 		for (int i = 0; i < position; i++) {
