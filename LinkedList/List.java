@@ -117,19 +117,24 @@ public class List {
 		this.head = node;
 	}
 
-	public Node get(int position) throws IndexException {
-
-		if (position > this.size) {
-			throw new IndexException
-				("Index Exception. Tried to access element " + position + " for a List of size " + this.size);
-		}
-
+	public Node get(int position) {
+		
 		Node traverse = this.head;
 
-		for (int i = 0; i < position; i++) {
-			traverse = traverse.next;
-		}
+		try {
+			if (position > this.length) {
+				throw new IndexException
+					("Index Exception. Tried to access element " + position + " for a List of length " + this.length);
+			}
 
+			for (int i = 0; i < position; i++) {
+				traverse = traverse.next;
+			}
+
+		} catch (IndexException e) {
+			e.printStackTrace();
+			return null;
+		}
 		return traverse;
 	}
 
@@ -149,7 +154,7 @@ public class List {
 		List list = new List();
 		list.generateList(20);
 		
-		System.out.println(list);
-		System.out.println(list.sortList());
+		System.out.println(list.get(19).getValue());
+		System.out.println(list.get(21).getValue());
 	}
 }
