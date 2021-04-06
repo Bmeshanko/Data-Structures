@@ -113,6 +113,16 @@ public class List {
 		this.head = node;
 	}
 
+	public Node get(int position) {
+		Node traverse = this.head;
+
+		for (int i = 0; i < position; i++) {
+			traverse = traverse.next;
+		}
+
+		return traverse;
+	}
+
 	public void queueNode(Node node) {
 		// In a Queue, Nodes are added to the end.
 		this.length++;
