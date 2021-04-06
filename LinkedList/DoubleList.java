@@ -23,29 +23,25 @@ public class DoubleList {
 	}
 
 	public void generateList(int length) {
-		DoubleNode head = new DoubleNode();
 
-		this.head = head;
 		this.length = length;
 
 		for (int i = 0; i < length; i++) {
 			DoubleNode newNode = new DoubleNode();
 			
-			if (this.head.next == null) {
-				head.next = newNode;
-				newNode.prev = head;
+			if (this.head == null) {
+				this.head = newNode;
+			} else {
+
+				DoubleNode traverse = this.head;
+
+				while (traverse != null && traverse.next != null) {
+					traverse = traverse.next;
+				}
+
+				traverse.next = newNode;
+				newNode.prev = traverse;
 			}
-
-			DoubleNode traverse = this.head;
-
-			while (traverse != null && traverse.next != null) {
-				traverse = traverse.next;
-			}
-
-			System.out.println("Test");
-
-			traverse.next = newNode;
-			newNode.prev = traverse;
 
 			if (i == length - 1) {
 				this.tail = newNode;
@@ -82,15 +78,10 @@ public class DoubleList {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Test");
 
 		DoubleList list = new DoubleList();
 
-		System.out.println("Test 2");
-
 		list.generateList(5);
-		
-		System.out.println("Made it here");
 
 		String forward = list.forwardString();
 		String backward = list.backwardString();
