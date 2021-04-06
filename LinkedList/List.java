@@ -20,6 +20,10 @@ public class List {
 		public void setNext(Node next) {
 			this.next = next;
 		}
+
+		public int getValue() {
+			return this.value;
+		}
 	}
         
 	/* 
