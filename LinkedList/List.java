@@ -150,6 +150,15 @@ public class List {
 		traverse.next = node;
 	}
 
+	public Node pop() {
+		this.length--;
+
+		Node temp = this.head;
+		this.head = this.head.next;
+
+		return temp;
+	}
+
 	public static void main(String[] args) {
 		List list = new List();
 		list.generateList(20);
