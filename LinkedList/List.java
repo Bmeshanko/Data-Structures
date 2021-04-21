@@ -161,7 +161,7 @@ public class List {
 
 	public static void main(String[] args) {
 		List list = new List();
-		list.generateList(20);
+		list.generateList(30);
 		
 		System.out.println(list.get(19).getValue());
 		System.out.println(list.get(21).getValue());
