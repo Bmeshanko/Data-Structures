@@ -49,9 +49,20 @@ void merge(int arr[], int a, int m, int b) {
 }
 
 int main(int argc, char **argv) {
-    	int arr[8] = {2, 6, 4, 1, 5, 7, 8, 3};
-    	printf("%d %d %d %d %d %d %d %d\n", arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7]);
-	sort(arr, 0, 7);
-    	printf("%d %d %d %d %d %d %d %d\n", arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7]);
+    	int size = 10;
+
+	if (argc > 1)
+		size = atoi(argv[1]);
+	
+	int arr[size];
+	
+	time_t t;
+	srand((unsigned) time(&t));
+
+	for (int i = 0; i < size; i++) {
+		arr[i] = (rand() % size) + 1;
+	}
+
+	sort(arr, 0, size);
 }
 
