@@ -28,7 +28,7 @@ public class Graph {
 				
 				double random = Math.random();
 				if (random < 0.5 && i != j) {
-					this.connections[i][j] = true;
+					this.connections[i][j] = true
 					this.connections[j][i] = true;
 				} else {
 					this.connections[i][j] = false;
